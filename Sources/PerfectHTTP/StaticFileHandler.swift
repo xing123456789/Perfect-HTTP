@@ -279,7 +279,7 @@ public struct StaticFileHandler {
 			#else
 			let offset = off_t(file.marker)
 			var toSend = off_t(remaining)
-			let result = sendfile(Int32(inFd), outFd, offset, &toSend, nil, 0)
+			let result = sendfile(Int32(9), outFd, offset, &toSend, nil, 0)
 			if result == 0 {
 				completion(true)
 			} else	if result == -1 && errno == EAGAIN {
